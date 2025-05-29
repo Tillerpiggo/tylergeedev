@@ -123,8 +123,12 @@ export const projects: Project[] = [
       "Bubble is an iOS application designed for students to collaboratively create and manage homework todos with others in the same classes.",
       "It leverages CloudKit for automatic data synchronization across multiple devices via iCloud, ensuring everyone stays up-to-date. Core Data is utilized for robust local persistence of todo items and class information."
     ],
-    coverImage: "/placeholder.svg",
-    gallery: [],
+    coverImage: "/todoapp0.png",
+    gallery: [
+      "/todoapp1.png",
+      "/todoapp2.png",
+      "/todoapp3.png"
+    ],
     techStack: ["iOS", "Swift", "Xcode", "CloudKit", "Core Data"],
     features: [
       "Collaborative todo lists for classes",
