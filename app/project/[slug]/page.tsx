@@ -1,16 +1,28 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Github, ExternalLink } from "lucide-react"
+import { ArrowLeft, Github, ExternalLink, X } from "lucide-react"
 import { projects } from "@/data/projects"
 import { notFound } from "next/navigation"
+import { useState } from "react"
 
 export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projects.find((p) => p.slug === params.slug)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
   if (!project) {
     notFound()
+  }
+
+  const openModal = (imageUrl: string) => {
+    setSelectedImage(imageUrl)
+  }
+
+  const closeModal = () => {
+    setSelectedImage(null)
   }
 
   return (
@@ -37,12 +49,14 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               GitHub
             </Link>
           </Button>
-          <Button size="sm" className="bg-neutral-800 hover:bg-neutral-700" asChild>
-            <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Live Demo
-            </Link>
-          </Button>
+          {project.liveUrl && (
+            <Button size="sm" className="bg-neutral-800 hover:bg-neutral-700" asChild>
+              <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Live Demo
+              </Link>
+            </Button>
+          )}
         </div>
       </div>
 
@@ -70,18 +84,29 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Project Gallery</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {project.gallery.map((image, index) => (
-            <div key={index} className="relative h-64 rounded-lg overflow-hidden">
-              <Image
-                src={image || "/placeholder.svg"}
-                alt={`${project.title} screenshot ${index + 1}`}
-                fill
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        {project.gallery && project.gallery.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {project.gallery.map((image, index) => (
+              <div
+                key={index}
+                className="relative h-64 rounded-lg overflow-hidden cursor-pointer group"
+                onClick={() => openModal(image || "/placeholder.svg")}
+              >
+                <Image
+                  src={image || "/placeholder.svg"}
+                  alt={`${project.title} screenshot ${index + 1}`}
+                  fill
+                  className="object-cover transition-transform group-hover:scale-105"
+                />
+                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity flex items-center justify-center">
+                  <p className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-lg font-semibold">View Image</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-neutral-600">No images in gallery yet.</p>
+        )}
       </div>
 
       {project.videoUrl && (
@@ -109,6 +134,36 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           ))}
         </ul>
       </div>
+
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center p-4"
+          onClick={closeModal}
+        >
+          <div 
+            className="relative bg-white p-2 rounded-lg shadow-xl max-w-3xl max-h-[90vh] overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-2 right-2 z-10 text-black hover:bg-neutral-200"
+              onClick={closeModal}
+            >
+              <X className="h-6 w-6" />
+              <span className="sr-only">Close image viewer</span>
+            </Button>
+            <Image
+              src={selectedImage}
+              alt="Enlarged project image"
+              width={1200}
+              height={800}
+              className="object-contain w-full h-auto"
+              style={{ maxHeight: "calc(90vh - 4rem)" }}
+            />
+          </div>
+        </div>
+      )}
     </main>
   )
 }
