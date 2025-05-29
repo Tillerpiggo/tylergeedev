@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Download, Mail, Linkedin, Github } from "lucide-react"
+import { ArrowLeft, Download } from "lucide-react"
 
 export default function ResumePage() {
   return (

@@ -41,12 +41,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Button>
 
           {project.liveUrl && (
-            <Button variant="outline" size="sm" className="rounded-full" asChild onClick={(e) => e.stopPropagation()}>
-              <Link href={project.liveUrl}>
-                <ExternalLink className="h-4 w-4 mr-1" />
-                View Project
-              </Link>
-            </Button>
+          <Button variant="outline" size="sm" className="rounded-full" asChild onClick={(e) => e.stopPropagation()}>
+            <Link href={project.liveUrl}>
+              <ExternalLink className="h-4 w-4 mr-1" />
+              View Project
+            </Link>
+          </Button>
           )}
         </div>
       </div>

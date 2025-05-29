@@ -18,7 +18,7 @@ export default function Home() {
           <AnimatedText text="Hey There 👋" className="text-5xl md:text-6xl font-bold" />
         </div>
         <h2 className="text-xl md:text-2xl text-neutral-600 mb-10">
-          I'm a full-stack developer. I build things I'm passionate about.
+          I&apos;m a full-stack developer. I build things I&apos;m passionate about.
         </h2>
 
         <div className="flex flex-wrap items-center gap-4">

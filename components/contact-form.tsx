@@ -35,7 +35,8 @@ export function ContactForm() {
       setSubmitStatus("success")
       // Reset form after successful submission
       setFormData({ name: "", email: "", subject: "", message: "" })
-    } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (_error) {
       setSubmitStatus("error")
     } finally {
       setIsSubmitting(false)

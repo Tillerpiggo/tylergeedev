@@ -7,9 +7,15 @@ import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Github, ExternalLink, X } from "lucide-react"
 import { projects } from "@/data/projects"
 import { notFound } from "next/navigation"
-import { useState } from "react"
+import { useState, use } from "react"
+import type { NextPage } from 'next';
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+interface PageParams {
+  slug: string;
+}
+
+const ProjectPage: NextPage<{ params: Promise<PageParams> }> = ({ params: paramsPromise }) => {
+  const params = use(paramsPromise);
   const project = projects.find((p) => p.slug === params.slug)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
@@ -167,3 +173,5 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     </main>
   )
 }
+
+export default ProjectPage

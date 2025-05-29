@@ -56,61 +56,104 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Mobile Companion",
-    slug: "mobile-companion",
-    shortDescription: "Cross-platform mobile app built with React Native",
+    title: "Cabin Visuals Website",
+    slug: "cabinvisuals-website",
+    shortDescription: "A visual DAW for creating music-synced visuals with rhythmic and melodic programming.",
     description: [
-      "Mobile Companion is a versatile lifestyle app designed to help users track their daily activities, set goals, and maintain healthy habits. Available on both iOS and Android platforms, it provides a seamless experience across devices.",
-      "The app features a clean, intuitive interface with customizable widgets and dashboards. Users can track various metrics including steps, water intake, sleep patterns, and more. The app also provides personalized insights based on user data.",
-      "Built with React Native and TypeScript, the codebase is maintainable and scalable. The app uses Redux for state management and Firebase for backend services including authentication, database, and analytics.",
+      "CabinVisuals.com offers a unique approach to visual creation, functioning as a 'visual DAW' (Digital Audio Workstation). It empowers users to design and generate visuals by programming rhythms and melodies, similar to how music is produced.",
+      "The platform is built with React, Zustand, React Three Fiber for 3D graphics, and utilizes IndexedDB for local persistence, with Supabase for backend services. Users can leverage pre-built visual instruments, import MIDI files, program their own MIDI sequences, and customize instruments and effects.",
+      "A key feature is the ability to upload an audio file and easily create visuals perfectly synchronized to the music. The final output can be exported as an MP4 video. The software aims to make complex visual production intuitive and accessible."
     ],
-    coverImage: "/mobile-app-interface.png",
+    coverImage: "/cabinvisuals.png",
     gallery: [
-      "/mobile-companion/home-screen.png",
-      "/mobile-companion/tracking.png",
-      "/mobile-companion/insights.png",
-      "/mobile-companion/settings.png",
+      "/cabinvisuals.png",
+      "/cabinvisualslandingpage.png",
+      "/cabinvisualsexamplevisual1.png",
+      "/cabinvisualsexamplevisual2.png"
     ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    techStack: ["React Native", "TypeScript", "Redux", "Firebase", "Expo", "Jest"],
+    videoUrl: "https://www.youtube.com/embed/21oQR1AMxBQ",
+    techStack: ["React", "Zustand", "IndexedDB", "Supabase", "React Three Fiber", "TypeScript"],
     features: [
-      "Cross-platform compatibility (iOS and Android)",
-      "Offline functionality with data sync",
-      "Push notifications for reminders",
-      "Social sharing capabilities",
-      "Integration with health apps",
-      "Customizable themes and layouts",
+      "Visual Digital Audio Workstation (DAW) concept",
+      "Rhythmic and melodic programming of visuals",
+      "Pre-built visual instruments",
+      "MIDI import and programming capabilities",
+      "Customizable instruments and effects",
+      "Music synchronization for visuals",
+      "MP4 video export",
+      "User-friendly interface for complex visual production"
     ],
-    githubUrl: "https://github.com/yourusername/mobile-companion",
-    liveUrl: "https://mobile-companion.vercel.app",
+    githubUrl: "https://github.com/Tillerpiggo/CabinVisuals",
+    liveUrl: "https://cabinvisuals.com/alpha",
   },
   {
     id: 4,
-    title: "AI Assistant",
-    slug: "ai-assistant",
-    shortDescription: "Natural language processing tool powered by machine learning",
+    title: "Birthday Reminder App",
+    slug: "birthday-reminder-app",
+    shortDescription: "Full-stack app for birthday reminders and gift recommendations.",
     description: [
-      "AI Assistant is an advanced natural language processing tool that helps users automate tasks, answer questions, and generate content. It leverages state-of-the-art machine learning models to understand and respond to user queries in natural language.",
-      "The application features a conversational interface where users can type or speak their requests. The AI processes these requests and provides relevant responses, whether it's answering a question, drafting an email, or summarizing a document.",
-      "Built with Python and TensorFlow on the backend, the application uses a fine-tuned transformer model for natural language understanding. The frontend is developed with React and communicates with the backend via a RESTful API.",
+      "This full-stack web application sends automated birthday reminder emails to users, leveraging the MailChimp API for email delivery.",
+      "The frontend is built with React, providing a user-friendly interface. The backend uses Node.js and Express.js, with MongoDB serving as the database for storing user and birthday information.",
+      "An administrative page, secured with Firebase authentication, allows for managing birthday gift recommendations, enhancing the personalized experience for users."
     ],
-    coverImage: "/ai-assistant-interface.png",
+    coverImage: "/autobid1.png",
     gallery: [
-      "/ai-assistant/chat-interface.png",
-      "/ai-assistant/content-generation.png",
-      "/ai-assistant/voice-input.png",
-      "/ai-assistant/settings.png",
+      "/autobid1.png",
+      "/autobid2.png",
+      "/autobid3.png"
     ],
-    techStack: ["Python", "TensorFlow", "React", "FastAPI", "Docker", "AWS"],
+    techStack: ["React", "Node.js", "Express.js", "MongoDB", "MailChimp API", "Firebase Authentication"],
     features: [
-      "Natural language understanding and generation",
-      "Voice input and output capabilities",
-      "Multi-language support",
-      "Context-aware conversations",
-      "Document summarization and analysis",
-      "Integration with productivity tools",
+      "Automated birthday reminder emails via MailChimp API",
+      "React-based frontend",
+      "Node.js/Express.js backend",
+      "MongoDB database for user and birthday data",
+      "Admin page with Firebase authentication",
+      "Management of birthday gift recommendations"
     ],
-    githubUrl: "https://github.com/yourusername/ai-assistant",
-    liveUrl: "https://ai-assistant.vercel.app",
+    githubUrl: "https://github.com/Tillerpiggo/AutoBid",
+    liveUrl: undefined, // No live demo link
   },
+  {
+    id: 5,
+    title: "Bubble - iOS Todo App",
+    slug: "bubble-ios-app",
+    shortDescription: "iOS Cloud-Synced Todo App for collaborative homework tracking.",
+    description: [
+      "Bubble is an iOS application designed for students to collaboratively create and manage homework todos with others in the same classes.",
+      "It leverages CloudKit for automatic data synchronization across multiple devices via iCloud, ensuring everyone stays up-to-date. Core Data is utilized for robust local persistence of todo items and class information."
+    ],
+    coverImage: "/placeholder.svg", // Placeholder image
+    gallery: [], // Empty gallery for now
+    techStack: ["iOS", "Swift", "Xcode", "CloudKit", "Core Data"],
+    features: [
+      "Collaborative todo lists for classes",
+      "Automatic iCloud syncing via CloudKit",
+      "Local data persistence with Core Data",
+      "Designed for students and homework management"
+    ],
+    githubUrl: "https://github.com/Tillerpiggo/Bubble",
+    liveUrl: undefined, // No live URL as it's a mobile app
+  },
+  {
+    id: 6,
+    title: "RacquetPass QR Generator",
+    slug: "racquetpass-qr-generator",
+    shortDescription: "Python/Django site for generating QR code stickers and CSVs for RacquetPass.",
+    description: [
+      "This project is a simple yet effective web application built with Python and Django to automate the generation of QR codes and associated CSV files. It was developed to address an immediate need at RacquetPass, a startup I was working with.",
+      "The tool streamlined the process of creating and shipping physical QR code stickers to customers, serving as a crucial interim solution while a more permanent system was under development by an external firm. It significantly helped in maintaining operational flow and customer service during a critical phase."
+    ],
+    coverImage: "/racquetpassQR.png",
+    gallery: ["/racquetpassQR.png"],
+    techStack: ["Python", "Django", "HTML", "CSS", "CSV Generation"],
+    features: [
+      "Automated QR code generation",
+      "CSV file export for sticker data",
+      "Simple web interface for ease of use",
+      "Provided a quick solution for a startup's operational need"
+    ],
+    githubUrl: "https://github.com/Tillerpiggo/generate-qrs",
+    liveUrl: "http://Tillerpiggo.pythonanywhere.com",
+  }
 ]
