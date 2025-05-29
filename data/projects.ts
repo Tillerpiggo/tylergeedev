@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "System audio routing",
     ],
     githubUrl: "https://github.com/Tillerpiggo/CabinEQ",
-    liveUrl: undefined,
+    liveUrl: null,
   },
   {
     id: 2,
@@ -112,7 +112,7 @@ export const projects: Project[] = [
       "Management of birthday gift recommendations"
     ],
     githubUrl: "https://github.com/Tillerpiggo/AutoBid",
-    liveUrl: undefined, // No live demo link
+    liveUrl: null,
   },
   {
     id: 5,
@@ -123,8 +123,8 @@ export const projects: Project[] = [
       "Bubble is an iOS application designed for students to collaboratively create and manage homework todos with others in the same classes.",
       "It leverages CloudKit for automatic data synchronization across multiple devices via iCloud, ensuring everyone stays up-to-date. Core Data is utilized for robust local persistence of todo items and class information."
     ],
-    coverImage: "/placeholder.svg", // Placeholder image
-    gallery: [], // Empty gallery for now
+    coverImage: "/placeholder.svg",
+    gallery: [],
     techStack: ["iOS", "Swift", "Xcode", "CloudKit", "Core Data"],
     features: [
       "Collaborative todo lists for classes",
@@ -133,7 +133,7 @@ export const projects: Project[] = [
       "Designed for students and homework management"
     ],
     githubUrl: "https://github.com/Tillerpiggo/Bubble",
-    liveUrl: undefined, // No live URL as it's a mobile app
+    liveUrl: null,
   },
   {
     id: 6,

@@ -10,5 +10,5 @@ export interface Project {
   techStack: string[]
   features: string[]
   githubUrl: string
-  liveUrl: string
+  liveUrl?: string | null;
 }
