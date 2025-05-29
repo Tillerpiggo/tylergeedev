@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "Settings persistence with IndexedDB",
       "Intuitive User Interface"
     ],
-    githubUrl: "https://github.com/Tillerpiggo/CabinAudio",
+    githubUrl: "https://github.com/JulianMcOmie/cabin-audio-webapp",
     liveUrl: "https://cabinaudio.com",
   },
   {
@@ -83,7 +83,7 @@ export const projects: Project[] = [
       "MP4 video export",
       "User-friendly interface for complex visual production"
     ],
-    githubUrl: "https://github.com/Tillerpiggo/CabinVisuals",
+    githubUrl: "https://github.com/JulianMcOmie/CabinVisuals",
     liveUrl: "https://cabinvisuals.com/alpha",
   },
   {
