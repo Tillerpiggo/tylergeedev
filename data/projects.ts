@@ -26,6 +26,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/Tillerpiggo/CabinEQ",
     liveUrl: null,
+    commits: 1180,
+    insertions: 206160,
+    deletions: 97816,
   },
   {
     id: 2,
@@ -53,6 +56,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/JulianMcOmie/cabin-audio-webapp",
     liveUrl: "https://cabinaudio.com",
+    commits: 250,
+    insertions: 51375,
+    deletions: 20530,
   },
   {
     id: 3,
@@ -85,6 +91,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/JulianMcOmie/CabinVisuals",
     liveUrl: "https://cabinvisuals.com/alpha",
+    commits: 227,
+    insertions: 43564,
+    deletions: 16827,
   },
   {
     id: 4,
@@ -113,6 +122,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/Tillerpiggo/AutoBid",
     liveUrl: null,
+    commits: 31,
+    insertions: 5240,
+    deletions: 2119,
   },
   {
     id: 5,
@@ -138,6 +150,9 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/Tillerpiggo/Bubble",
     liveUrl: null,
+    commits: 12,
+    insertions: 3134,
+    deletions: 626,
   },
   {
     id: 6,
@@ -159,5 +174,8 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/Tillerpiggo/generate-qrs",
     liveUrl: "http://Tillerpiggo.pythonanywhere.com",
+    commits: 2,
+    insertions: 560,
+    deletions: 0,
   }
 ]

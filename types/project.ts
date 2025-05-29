@@ -11,4 +11,7 @@ export interface Project {
   features: string[]
   githubUrl: string
   liveUrl?: string | null;
+  commits?: number;
+  insertions?: number;
+  deletions?: number;
 }

@@ -76,6 +76,13 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
         </div>
       </div>
 
+      {project.commits !== undefined && (
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold mb-2">Project Stats</h2>
+          <p className="text-neutral-700">Total Commits: {project.commits.toLocaleString()}</p>
+        </div>
+      )}
+
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">About this Project</h2>
         <div className="prose max-w-none">
