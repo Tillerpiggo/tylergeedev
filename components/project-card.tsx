@@ -5,30 +5,15 @@ import Link from "next/link"
 import { Github, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Project } from "@/types/project"
-import { useEffect, useState } from "react"
-import { getAverageColorFromImage } from "@/lib/color-utils"
 
 interface ProjectCardProps {
   project: Project
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const [averageColor, setAverageColor] = useState<string>("rgba(255, 255, 255, 0.1)")
-
-  useEffect(() => {
-    if (project.coverImage) {
-      getAverageColorFromImage(project.coverImage)
-        .then(setAverageColor)
-        .catch(err => {
-          console.error("Failed to get average color for project card", err)
-        });
-    }
-  }, [project.coverImage])
-
   return (
     <div 
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 transition-all hover:shadow-md"
-      style={{ backgroundColor: averageColor }}
+      className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all hover:shadow-md"
     >
       <Link href={`/project/${project.slug}`} className="absolute inset-0 z-10">
         <span className="sr-only">View {project.title}</span>
