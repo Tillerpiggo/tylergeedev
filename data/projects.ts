@@ -3,6 +3,38 @@ import type { Project } from "@/types/project"
 export const projects: Project[] = [
   {
     id: 1,
+    title: "HellaFocused - Todo App",
+    slug: "hellafocused-todo-app",
+    shortDescription: "Conquer one tiny to-do at a time with focus mode and infinite subtask breakdown.",
+    description: [
+      "HellaFocused is a productivity-focused to-do application built around the philosophy of 'conquering one tiny to-do at a time'. The app addresses productivity overwhelm through two core innovative features.",
+      "The focus mode eliminates decision paralysis by telling you exactly what to work on next, removing the mental overhead of choosing between tasks. The infinite subtask system allows you to break down any task into progressively smaller, more manageable pieces until they feel achievable.",
+      "Built with modern web technologies including React, Next.js, and TypeScript, with Supabase handling authentication and database needs, plus Resend for email functionality. This combination creates a seamless, distraction-free environment optimized for sustained productivity."
+    ],
+    coverImage: "/hellafocusedThumb.png",
+    gallery: [
+      "/hellafocusedThumb.png",
+      "/hellafocused1.png",
+      "/hellafocused2.png",
+      "/hellafocused3.png"
+    ],
+    techStack: ["React", "Next.js", "TypeScript", "Supabase", "Supabase Auth", "Resend"],
+    features: [
+      "Focus mode that tells you exactly what to do next",
+      "Infinite subtask breakdown for any task",
+      "Eliminates decision paralysis and overwhelm",
+      "Supabase authentication and data management",
+      "Email functionality via Resend",
+      "Philosophy of conquering one tiny to-do at a time"
+    ],
+    githubUrl: "https://github.com/Tillerpiggo/hellafocused",
+    liveUrl: "https://hellafocused.com",
+    commits: 130,
+    insertions: 27775,
+    deletions: 8195,
+  },
+  {
+    id: 2,
     title: "CabinEQ",
     slug: "cabineq",
     shortDescription: "A JUCE plugin for real-time DSP (EQ) with an infinite band EQ and custom hearing calibration.",
@@ -31,7 +63,7 @@ export const projects: Project[] = [
     deletions: 97816,
   },
   {
-    id: 2,
+    id: 3,
     title: "Cabin Audio Website",
     slug: "cabinaudio-website",
     shortDescription: "Web application for infinite band EQ, custom hearing calibration, and in-browser audio playback.",
@@ -61,7 +93,7 @@ export const projects: Project[] = [
     deletions: 20530,
   },
   {
-    id: 3,
+    id: 4,
     title: "Cabin Visuals Website",
     slug: "cabinvisuals-website",
     shortDescription: "A visual DAW for creating music-synced visuals with rhythmic and melodic programming.",
@@ -96,7 +128,7 @@ export const projects: Project[] = [
     deletions: 16827,
   },
   {
-    id: 4,
+    id: 5,
     title: "Birthday Reminder App",
     slug: "birthday-reminder-app",
     shortDescription: "Full-stack app for birthday reminders and gift recommendations.",
@@ -127,7 +159,7 @@ export const projects: Project[] = [
     deletions: 2119,
   },
   {
-    id: 5,
+    id: 6,
     title: "Bubble - iOS Todo App",
     slug: "bubble-ios-app",
     shortDescription: "iOS Cloud-Synced Todo App for collaborative homework tracking.",
@@ -155,7 +187,7 @@ export const projects: Project[] = [
     deletions: 626,
   },
   {
-    id: 6,
+    id: 7,
     title: "RacquetPass QR Generator",
     slug: "racquetpass-qr-generator",
     shortDescription: "Python/Django site for generating QR code stickers and CSVs for RacquetPass.",
