@@ -4,11 +4,37 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, Github, ExternalLink, X } from "lucide-react"
+import { AnimatedBackArrow } from "@/components/animated-back-arrow"
+import { X, ExternalLink } from "lucide-react"
 import { projects } from "@/data/projects"
-import { notFound } from "next/navigation"
+import { notFound, useRouter } from "next/navigation"
 import { useState } from "react"
 import type { NextPage } from 'next';
+
+const getProjectBackgroundColor = (coverImage: string) => {
+  if (coverImage.includes('hellafocused')) {
+    return 'bg-gradient-to-b from-slate-950/30 to-transparent'
+  }
+  if (coverImage.includes('cabinvisuals')) {
+    return 'bg-gradient-to-b from-indigo-950/30 to-transparent'
+  }
+  if (coverImage.includes('cabinaudio')) {
+    return 'bg-gradient-to-b from-teal-950/30 to-transparent'
+  }
+  if (coverImage.includes('cabinEQ')) {
+    return 'bg-gradient-to-b from-emerald-950/30 to-transparent'
+  }
+  if (coverImage.includes('autobid')) {
+    return 'bg-gradient-to-b from-blue-950/30 to-transparent'
+  }
+  if (coverImage.includes('racquetpass')) {
+    return 'bg-gradient-to-b from-blue-950/30 to-transparent'
+  }
+  if (coverImage.includes('todoapp')) {
+    return 'bg-gradient-to-b from-red-950/30 to-transparent'
+  }
+  return 'bg-gradient-to-b from-neutral-950/30 to-transparent'
+}
 
 interface PageParams {
   slug: string;
@@ -17,6 +43,7 @@ interface PageParams {
 const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
   const project = projects.find((p) => p.slug === params.slug)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const router = useRouter()
 
   if (!project) {
     notFound()
@@ -30,48 +57,62 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
     setSelectedImage(null)
   }
 
-  return (
-    <main className="min-h-screen max-w-4xl mx-auto px-6 py-12">
-      <div className="mb-8">
-        <Link href="/">
-          <Button variant="ghost" className="pl-0">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
-          </Button>
-        </Link>
-      </div>
+  const handleBackClick = () => {
+    sessionStorage.setItem('homeScrollPosition', sessionStorage.getItem('homeScrollPosition') || '0')
+    router.back()
+  }
 
-      <div className="relative w-full h-64 md:h-96 rounded-lg overflow-hidden mb-8">
-        <Image src={project.coverImage || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+  return (
+    <div className={`min-h-screen ${getProjectBackgroundColor(project.coverImage || '')} w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]`}>
+      <main className="max-w-4xl mx-auto px-6 py-12">
+      <div className="mb-8">
+        <AnimatedBackArrow onClick={handleBackClick} />
       </div>
 
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold">{project.title}</h1>
-        <div className="flex gap-2">
-          <Button variant="outline" size="sm" asChild>
-            <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-4 w-4" />
-              GitHub
-            </Link>
-          </Button>
+        <div className="flex items-center gap-4">
+          <Link 
+            href={project.githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-neutral-300 hover:text-foreground hover:underline transition-colors duration-300"
+          >
+            Code
+          </Link>
           {project.liveUrl && (
-            <Button size="sm" className="bg-neutral-800 hover:bg-neutral-700" asChild>
-              <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-2 h-4 w-4" />
-                Live Demo
-              </Link>
-            </Button>
+            <Link 
+              href={project.liveUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-neutral-300 hover:text-foreground hover:underline transition-colors duration-300"
+            >
+              Link
+            </Link>
           )}
         </div>
+      </div>
+
+      <div className="relative w-full mb-8">
+        <Image 
+          src={project.coverImage || "/placeholder.svg"} 
+          alt={project.title} 
+          width={1200} 
+          height={600} 
+          className="w-full h-auto rounded-lg object-contain" 
+        />
       </div>
 
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Tech Stack</h2>
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
-            <Badge key={tech} variant="secondary" className="px-3 py-1">
+            <span 
+              key={tech} 
+              className="px-3 py-1 text-sm text-white bg-white/10 backdrop-blur-md border border-white/20 rounded-full"
+            >
               {tech}
-            </Badge>
+            </span>
           ))}
         </div>
       </div>
@@ -79,7 +120,7 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
       {project.commits !== undefined && (
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Project Stats</h2>
-          <p className="text-neutral-700">Total Commits: {project.commits.toLocaleString()}</p>
+          <p className="text-neutral-300">Total Commits: {project.commits.toLocaleString()}</p>
         </div>
       )}
 
@@ -87,7 +128,7 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
         <h2 className="text-xl font-semibold mb-4">About this Project</h2>
         <div className="prose max-w-none">
           {project.description.map((paragraph, index) => (
-            <p key={index} className="mb-4 text-neutral-700">
+            <p key={index} className="mb-4 text-neutral-300">
               {paragraph}
             </p>
           ))}
@@ -117,7 +158,7 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
             ))}
           </div>
         ) : (
-          <p className="text-neutral-600">No images in gallery yet.</p>
+          <p className="text-neutral-300">No images in gallery yet.</p>
         )}
       </div>
 
@@ -140,7 +181,7 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
         <h2 className="text-xl font-semibold mb-4">Key Features</h2>
         <ul className="list-disc pl-5 space-y-2">
           {project.features.map((feature, index) => (
-            <li key={index} className="text-neutral-700">
+            <li key={index} className="text-neutral-300">
               {feature}
             </li>
           ))}
@@ -176,7 +217,8 @@ const ProjectPage: NextPage<{ params: PageParams }> = ({ params }) => {
           </div>
         </div>
       )}
-    </main>
+      </main>
+    </div>
   )
 }
 

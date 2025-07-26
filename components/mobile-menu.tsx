@@ -33,7 +33,7 @@ export function MobileMenu() {
           GitHub
         </Link>
         <a href="mailto:tyler.gee333@gmail.com" className="text-foreground hover:underline transition-all">
-          Email
+          Contact
         </a>
       </div>
 
@@ -88,7 +88,7 @@ export function MobileMenu() {
             className="text-foreground hover:underline transition-all py-2"
             onClick={closeMenu}
           >
-            Email
+            Contact
           </a>
         </div>
       </div>
