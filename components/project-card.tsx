@@ -13,65 +13,65 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div 
-      className="group relative flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all hover:shadow-md"
+      className="group relative overflow-hidden rounded-xl border border-neutral-700 bg-card transition-all duration-300 hover:shadow-xl hover:shadow-neutral-900/30 hover:border-neutral-600 hover:-translate-y-1 p-8"
     >
       <Link href={`/project/${project.slug}`} className="absolute inset-0 z-10">
         <span className="sr-only">View {project.title}</span>
       </Link>
 
-      <div className="relative h-48 overflow-hidden">
-        <Image
-          src={project.coverImage || "/placeholder.svg"}
-          alt={project.title}
-          fill
-          className="object-cover transition-transform group-hover:scale-105"
-        />
-      </div>
-
-      <div className="flex flex-col p-4">
-        <h3 className="text-xl font-medium">{project.title}</h3>
-        <p className="mt-2 text-sm text-neutral-600 flex-grow">{project.shortDescription}</p>
-
+      <div className="flex flex-col space-y-6">
+        <div className="relative w-full h-48 overflow-hidden rounded-lg mb-4">
+          <Image
+            src={project.coverImage || "/placeholder.svg"}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        
+        <div className="flex flex-col">
+          <h3 className="text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+          <p className="text-base text-neutral-400 line-clamp-2 leading-relaxed">{project.shortDescription}</p>
+        </div>
+        
         {project.techStack && project.techStack.length > 0 && (
-          <div className="mt-3 mb-2 flex flex-wrap gap-1.5 items-center">
+          <div className="flex flex-wrap gap-2 items-center">
             {project.techStack.slice(0, 4).map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-0.5 text-xs bg-neutral-100 text-neutral-700 rounded-full border border-neutral-200"
+                className="px-3 py-1 text-sm bg-secondary/80 text-secondary-foreground rounded-full border border-border/50 transition-colors duration-300 group-hover:bg-secondary"
               >
                 {tech}
               </span>
             ))}
             {project.techStack.length > 4 && (
-              <span className="text-xs text-neutral-500">+ more</span>
+              <span className="text-sm text-neutral-400">+{project.techStack.length - 4} more</span>
             )}
           </div>
         )}
 
-        <div className="mt-auto pt-2 flex flex-col gap-2 z-20">
-          <div className="flex items-center justify-end gap-2">
-            <Button variant="outline" size="sm" className="rounded-full" asChild onClick={(e) => e.stopPropagation()}>
+        <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center gap-3 z-20">
+            <Button variant="outline" size="sm" className="h-9 px-4 transition-all duration-300 hover:scale-105" asChild onClick={(e) => e.stopPropagation()}>
               <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4 mr-1" />
-                GitHub
+                <Github className="h-4 w-4 mr-2" />
+                Code
               </Link>
             </Button>
 
             {project.liveUrl && (
-            <Button variant="outline" size="sm" className="rounded-full" asChild onClick={(e) => e.stopPropagation()}>
+            <Button variant="outline" size="sm" className="h-9 px-4 transition-all duration-300 hover:scale-105" asChild onClick={(e) => e.stopPropagation()}>
               <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4 mr-1" />
-                View Project
+                <ExternalLink className="h-4 w-4 mr-2" />
+                Live
               </Link>
             </Button>
             )}
           </div>
 
           {(project.commits !== undefined) && (
-            <div className="text-xs text-neutral-500 text-right mt-1">
-              {project.commits !== undefined && (
-                <span>{project.commits.toLocaleString()} commits</span>
-              )}
+            <div className="text-sm text-neutral-400 whitespace-nowrap">
+              {project.commits.toLocaleString()} commits
             </div>
           )}
         </div>
