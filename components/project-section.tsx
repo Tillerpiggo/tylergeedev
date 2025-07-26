@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown, ExternalLink } from "lucide-react"
@@ -39,10 +39,37 @@ const getProjectBackgroundColor = (coverImage: string) => {
 
 export function ProjectSection({ project }: ProjectSectionProps) {
   const [showDetails, setShowDetails] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const imageRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(entry.target)
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    )
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current)
+    }
+
+    return () => {
+      if (imageRef.current) {
+        observer.unobserve(imageRef.current)
+      }
+    }
+  }, [])
 
   return (
     <div className={`group transition-all duration-1000 ${getProjectBackgroundColor(project.coverImage || '')} w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]`}>
-      <div className="max-w-5xl mx-auto px-6 pt-8 pb-16">
+      <div className="max-w-5xl mx-auto px-6 pt-16 pb-16">
       <div className="mb-6">
         <div className="flex items-baseline justify-between mb-4">
           <div className="flex items-center gap-4 flex-1">
@@ -57,7 +84,7 @@ export function ProjectSection({ project }: ProjectSectionProps) {
       </div>
       
       
-      <div className="mb-6">
+      <div ref={imageRef} className={`mb-6 transition-all duration-700 ease-out ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'}`}>
         <Link href={`/project/${project.slug}`} className="block">
           <Image
             src={project.coverImage || "/placeholder.svg"}
