@@ -47,7 +47,7 @@ export default function Home() {
         <MobileMenu />
       </header>
 
-      <section className="pt-32 pb-8 flex flex-col items-start text-left">
+      <section className="pt-16 pb-8 flex flex-col items-start text-left">
         <div className="mb-2">
           <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-16">Hi. I'm a dev obsessed with music and meaning.</h1>
           <div>
