@@ -2,6 +2,7 @@ export interface Project {
   id: number
   title: string
   slug: string
+  date: string
   shortDescription: string
   description: string[]
   coverImage: string
