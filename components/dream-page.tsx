@@ -191,7 +191,7 @@ export function DreamPage() {
                 className="w-16 h-12 object-cover rounded border border-stone-200 flex-shrink-0"
               />
               <div className="flex items-center gap-2">
-                <span>Visual Music Creation</span>
+                <span>C418 Sweden - Visual Music</span>
                 <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
               </div>
             </Link>
