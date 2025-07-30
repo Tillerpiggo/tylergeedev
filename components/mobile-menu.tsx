@@ -21,21 +21,6 @@ export function MobileMenu() {
         {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
       </button>
 
-      {/* Desktop menu */}
-      <div className="hidden md:flex flex-wrap items-center gap-6">
-        <Link href="/resume" className="text-foreground hover:underline transition-all">
-          Resume
-        </Link>
-        <Link href="https://www.linkedin.com/in/tyler-gee-998b46260/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline transition-all">
-          LinkedIn
-        </Link>
-        <Link href="https://github.com/Tillerpiggo" target="_blank" rel="noopener noreferrer" className="text-foreground hover:underline transition-all">
-          GitHub
-        </Link>
-        <a href="mailto:tyler.gee333@gmail.com" className="text-foreground hover:underline transition-all">
-          Contact
-        </a>
-      </div>
 
       {/* Mobile menu overlay */}
       {isOpen && (

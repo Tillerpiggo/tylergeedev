@@ -65,3 +65,17 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Wipe animation for mode switching */
+@keyframes wipe-down-with-content {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.animate-wipe-down-with-content {
+  animation: wipe-down-with-content 0.8s ease-out;
+}

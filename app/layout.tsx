@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { ModeProvider } from "@/contexts/mode-context";
 import "./globals.css";
 
 // geistSans and geistMono are already configured font objects/variables
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       {/* Use .variable to access the CSS variable name */}
       <body className="font-sans"> {/* Ensure a default font-family is set if needed */}
-        {children}
+        <ModeProvider>
+          {children}
+        </ModeProvider>
       </body>
     </html>
   );
