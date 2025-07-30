@@ -24,7 +24,7 @@ export default function Home() {
       case "written":
         return (
           <div className="flex flex-col items-center justify-center py-32 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-8 leading-normal pb-2">
               {writtenContent.title}
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -35,7 +35,7 @@ export default function Home() {
       case "composed":
         return (
           <div className="flex flex-col items-center justify-center py-32 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-8 leading-normal pb-2">
               {composedContent.title}
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -86,9 +86,9 @@ export default function Home() {
 
       <section className="pt-16 pb-8 flex flex-col items-start text-left">
         <div className="mb-2">
-          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-16">Hi. I'm a dev obsessed with music and meaning.</h1>
+          <h1 className="text-6xl md:text-7xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-16 leading-normal pb-2">Hi. I'm a dev obsessed with music and meaning.</h1>
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent inline">Here's what I've </h2>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent inline leading-normal pb-1">Here's what I've </h2>
             <VerbDropdown onVerbChange={setSelectedVerb} />
           </div>
         </div>

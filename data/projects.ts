@@ -212,11 +212,11 @@ export const projects: Project[] = [
 ]
 
 export const writtenContent = {
-  title: "I've done stuff, but haven't organized it here yet",
-  description: "Coming soon..."
+  title: "Coming soon",
+  description: "I've written stuff, but haven't organized it here yet"
 }
 
 export const composedContent = {
-  title: "I've done stuff, but haven't organized it here yet", 
-  description: "Coming soon..."
+  title: "Coming soon", 
+  description: "I've composed stuff, but haven't organized it here yet"
 }
