@@ -5,11 +5,48 @@ import { MobileMenu } from "@/components/mobile-menu"
 import { VerbDropdown } from "@/components/verb-dropdown"
 import { ScrollIndicator } from "@/components/scroll-indicator"
 import Link from "next/link"
-import { projects } from "@/data/projects"
+import { projects, writtenContent, composedContent } from "@/data/projects"
 import { useState, useEffect } from "react"
 
 export default function Home() {
   const [selectedVerb, setSelectedVerb] = useState("built")
+
+  const renderContent = () => {
+    switch (selectedVerb) {
+      case "built":
+        return (
+          <div className="flex flex-col space-y-0">
+            {projects.map((project) => (
+              <ProjectSection key={project.id} project={project} />
+            ))}
+          </div>
+        )
+      case "written":
+        return (
+          <div className="flex flex-col items-center justify-center py-32 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-8">
+              {writtenContent.title}
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              {writtenContent.description}
+            </p>
+          </div>
+        )
+      case "composed":
+        return (
+          <div className="flex flex-col items-center justify-center py-32 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-8">
+              {composedContent.title}
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              {composedContent.description}
+            </p>
+          </div>
+        )
+      default:
+        return null
+    }
+  }
 
   useEffect(() => {
     // Restore scroll position when returning from project detail
@@ -57,11 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="flex flex-col space-y-0">
-        {projects.map((project) => (
-          <ProjectSection key={project.id} project={project} />
-        ))}
-      </div>
+      {renderContent()}
 
       <footer className="py-16 flex justify-center">
         <a 

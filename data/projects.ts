@@ -210,3 +210,13 @@ export const projects: Project[] = [
     deletions: 626,
   }
 ]
+
+export const writtenContent = {
+  title: "I've done stuff, but haven't organized it here yet",
+  description: "Coming soon..."
+}
+
+export const composedContent = {
+  title: "I've done stuff, but haven't organized it here yet", 
+  description: "Coming soon..."
+}

@@ -34,7 +34,7 @@ export function VerbDropdown({ onVerbChange }: VerbDropdownProps) {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 mt-2 bg-neutral-900 border border-neutral-700 rounded-lg shadow-lg z-10 min-w-full">
+        <div className="absolute top-full left-0 mt-2 bg-neutral-900 border border-neutral-700 rounded-lg shadow-lg z-50 min-w-full">
           {verbs.map((verb) => (
             <button
               key={verb.value}
@@ -50,7 +50,7 @@ export function VerbDropdown({ onVerbChange }: VerbDropdownProps) {
       {/* Click outside to close */}
       {isOpen && (
         <div 
-          className="fixed inset-0 z-0" 
+          className="fixed inset-0 z-40" 
           onClick={() => setIsOpen(false)}
         />
       )}
