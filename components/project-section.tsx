@@ -71,7 +71,7 @@ export function ProjectSection({ project }: ProjectSectionProps) {
     <div className={`group ${getProjectBackgroundColor(project.coverImage || '')} w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]`}>
       <div className="max-w-5xl mx-auto px-6 pt-16 pb-16">
       <div className="mb-6">
-        <div className="flex items-baseline justify-between mb-4">
+        <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-4 flex-1">
             <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent tracking-tight">{project.title}</h2>
             <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>

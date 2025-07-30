@@ -5,12 +5,13 @@ export const projects: Project[] = [
     id: 1,
     title: "HellaFocused - Todo App",
     slug: "hellafocused-todo-app",
-    date: "2024",
-    shortDescription: "Conquer one tiny to-do at a time with focus mode and infinite subtask breakdown.",
+    date: "June 2025",
+    shortDescription: "Focus on one task at a time with infinite subtasks.",
     description: [
-      "HellaFocused is a productivity-focused to-do application built around the philosophy of 'conquering one tiny to-do at a time'. The app addresses productivity overwhelm through two core innovative features.",
-      "The focus mode eliminates decision paralysis by telling you exactly what to work on next, removing the mental overhead of choosing between tasks. The infinite subtask system allows you to break down any task into progressively smaller, more manageable pieces until they feel achievable.",
-      "Built with modern web technologies including React, Next.js, and TypeScript, with Supabase handling authentication and database needs, plus Resend for email functionality. This combination creates a seamless, distraction-free environment optimized for sustained productivity."
+      "I built hellafocused to solve my own problem: I don't like to-do lists!",
+      "Focus mode shows you one task at a time, which is much nicer to look at than a list. Infinite subtasks help you make tasks approachable, which helps to keep yourself organized and motivated while completing tasks.",
+      "It's really fun to keep checking off tasks one by one - it feels like you're making a lot of progress.",
+      "iOS/iPadOS/macOS coming soon. More motivational features also coming soon."
     ],
     coverImage: "/hellafocused1.png",
     gallery: [
@@ -21,12 +22,9 @@ export const projects: Project[] = [
     ],
     techStack: ["React", "Next.js", "TypeScript", "Supabase", "Supabase Auth", "Resend"],
     features: [
-      "Focus mode that tells you exactly what to do next",
-      "Infinite subtask breakdown for any task",
-      "Eliminates decision paralysis and overwhelm",
-      "Supabase authentication and data management",
-      "Email functionality via Resend",
-      "Philosophy of conquering one tiny to-do at a time"
+      "Focus mode shows you one task at a time",
+      "Infinite subtasks to make tasks tiny",
+      "Access your tasks from any device with an account",
     ],
     githubUrl: "https://github.com/Tillerpiggo/hellafocused",
     liveUrl: "https://hellafocused.com",
@@ -38,7 +36,7 @@ export const projects: Project[] = [
     id: 4,
     title: "Cabin Visuals - 3D Animation Software",
     slug: "cabinvisuals-website",
-    date: "2023",
+    date: "April 2025",
     shortDescription: "A visual DAW for creating music-synced visuals with rhythmic and melodic programming.",
     description: [
       "CabinVisuals.com offers a unique approach to visual creation, functioning as a 'visual DAW' (Digital Audio Workstation). It empowers users to design and generate visuals by programming rhythms and melodies, similar to how music is produced.",
@@ -74,7 +72,7 @@ export const projects: Project[] = [
     id: 3,
     title: "Cabin Audio - Fullstack Web App",
     slug: "cabinaudio-website",
-    date: "2023",
+    date: "March 2025",
     shortDescription: "Web application for infinite band EQ, custom hearing calibration, and in-browser audio playback.",
     description: [
       "CabinAudio.com is a web-based audio equalization tool that brings the power of infinite band EQ and personalized hearing calibration to your browser.",
@@ -105,7 +103,7 @@ export const projects: Project[] = [
     id: 2,
     title: "CabinEQ - Audio Plugin",
     slug: "cabineq",
-    date: "2023",
+    date: "Nov 2024",
     shortDescription: "A JUCE plugin for real-time DSP (EQ) with an infinite band EQ and custom hearing calibration.",
     description: [
       "CabinEQ is a powerful audio plugin built with the JUCE framework, offering real-time digital signal processing capabilities, specifically focused on equalization.",
@@ -192,7 +190,7 @@ export const projects: Project[] = [
     id: 6,
     title: "Bubble - iOS Todo App",
     slug: "bubble-ios-app",
-    date: "2022",
+    date: "2018",
     shortDescription: "iOS Cloud-Synced Todo App for collaborative homework tracking.",
     description: [
       "Bubble is an iOS application designed for students to collaboratively create and manage homework todos with others in the same classes.",
