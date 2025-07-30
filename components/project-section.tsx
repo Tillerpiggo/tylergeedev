@@ -70,20 +70,6 @@ export function ProjectSection({ project }: ProjectSectionProps) {
   return (
     <div className={`group ${getProjectBackgroundColor(project.coverImage || '')} w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]`}>
       <div className="max-w-5xl mx-auto px-6 pt-16 pb-16">
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-4 flex-1">
-            <h2 className="text-4xl md:text-5xl font-black bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent tracking-tight leading-normal pb-2">{project.title}</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-border to-transparent"></div>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-lg text-neutral-300">{project.date}</span>
-            <AnimatedArrow href={`/project/${project.slug}`} />
-          </div>
-        </div>
-      </div>
-      
-      
       <div ref={imageRef} className={`mb-6 transition-all duration-700 ease-out ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'}`}>
         <Link href={`/project/${project.slug}`} className="block">
           <Image
@@ -94,6 +80,15 @@ export function ProjectSection({ project }: ProjectSectionProps) {
             className="w-full h-auto rounded-lg object-cover shadow-2xl transition-transform duration-300 hover:scale-[1.02] border border-border/10 cursor-pointer"
           />
         </Link>
+      </div>
+      
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <Link href={`/project/${project.slug}`}>
+            <h2 className="text-xl font-semibold text-neutral-300 hover:text-foreground hover:underline transition-colors duration-300">{project.title}</h2>
+          </Link>
+          <span className="text-lg text-neutral-300">{project.date}</span>
+        </div>
       </div>
       
       <div className="flex items-start justify-between mt-4">

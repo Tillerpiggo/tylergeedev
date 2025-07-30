@@ -28,7 +28,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
         
         <div className="flex flex-col">
-          <h3 className="text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">{project.title}</h3>
+          <div className="flex items-center justify-between mb-3">
+            <Link href={`/project/${project.slug}`} className="z-20 relative">
+              <h3 className="text-xl font-semibold text-neutral-300 hover:text-foreground hover:underline transition-colors duration-300">{project.title}</h3>
+            </Link>
+            <span className="text-lg text-neutral-300">{project.date}</span>
+          </div>
           <p className="text-base text-neutral-400 line-clamp-2 leading-relaxed mb-4">{project.shortDescription}</p>
           
           {project.techStack && project.techStack.length > 0 && (
